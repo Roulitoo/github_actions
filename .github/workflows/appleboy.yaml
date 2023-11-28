@@ -1,7 +1,7 @@
 name: remote ssh command
-on: [push]
+on:
+  push:
 jobs:
-
   build:
     name: Build
     runs-on: ubuntu-latest
@@ -14,5 +14,6 @@ jobs:
         key: ${{ secrets.KEY }}
         port: ${{ secrets.PORT }}
         script: |
+          pwd
           whoami
           ls -al
