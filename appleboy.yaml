@@ -16,4 +16,7 @@ jobs:
         script: |
           pwd
           whoami
-          ls -al
+          source dts_venv/bin/activate
+          python3 main.py
+          python3 -m pytest github_actions/tests/test_model.py
+          
