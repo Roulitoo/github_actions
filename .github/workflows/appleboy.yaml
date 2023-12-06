@@ -11,7 +11,7 @@ jobs:
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.KEY }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: ${{ secrets.PORT }}
         script: |
           pwd
@@ -19,4 +19,6 @@ jobs:
           source dts_venv/bin/activate
           python3 main.py
           python3 -m pytest github_actions/tests/test_model.py
+          
+
           
