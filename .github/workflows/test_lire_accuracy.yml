@@ -26,4 +26,4 @@ jobs:
         pip install -r requirements.txt
 
     - name: Afficher le contenu de l'environnement virtuel
-      run: ls -la test_venv/bin/
+      run: ls -la .

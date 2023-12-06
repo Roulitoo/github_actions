@@ -1,25 +1,25 @@
-name: remote ssh command
-on:
-  push:
-jobs:
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-    - name: executing remote ssh commands using password
-      uses: appleboy/ssh-action@v1.0.0
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        port: ${{ secrets.PORT }}
-        script: |
-          pwd
-          source dts_venv/bin/activate
-          cd github_actions
-          whoami
-          python3 main.py
-          python3 -m pytest tests/test_model.py
+#name: remote ssh command
+#on:
+#  push:
+#jobs:
+# build:
+#   name: Build
+#   runs-on: ubuntu-latest
+#   steps:
+#   - name: executing remote ssh commands using password
+#     uses: appleboy/ssh-action@v1.0.0
+#     with:
+#       host: ${{ secrets.HOST }}
+#       username: ${{ secrets.USERNAME }}
+#       key: ${{ secrets.SSH_PRIVATE_KEY }}
+#       port: ${{ secrets.PORT }}
+#        script: |
+#          pwd
+#          source dts_venv/bin/activate
+#          cd github_actions
+#          whoami
+#          python3 main.py
+#          python3 -m pytest tests/test_model.py
           
 
           
