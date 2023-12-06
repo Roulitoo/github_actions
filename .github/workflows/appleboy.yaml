@@ -19,7 +19,7 @@ jobs:
           cd github_actions
           whoami
           python3 main.py
-          python3 -m pytest github_actions/tests/test_model.py
+          python3 -m pytest tests/test_model.py
           
 
           
