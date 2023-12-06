@@ -27,4 +27,4 @@ jobs:
 
     - name: Retrain
       run: |
-        python3 main.py
+        test_venv/bin/python3 main.py
