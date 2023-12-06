@@ -15,9 +15,9 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           pwd
+          source dts_venv/bin/activate
           cd github_actions
           whoami
-          source dts_venv/bin/activate
           python3 main.py
           python3 -m pytest github_actions/tests/test_model.py
           
