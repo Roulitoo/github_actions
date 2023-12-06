@@ -1,0 +1,30 @@
+name: CI/CD pour réentraîner et tester le modèle
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  reentrainement_evaluation:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout du code
+      uses: actions/checkout@v2
+
+    - name: Lire l'accuracy précédente
+      run: |
+        PREVIOUS_ACCURACY=$(grep "Précision du modèle" accuray_log | awk '{print $5}')
+        echo "Précision précédente : $PREVIOUS_ACCURACY"
+      id: previous_accuracy
+
+    - name: Create environment
+      run: |
+        python3 -m venv test_env
+        source test_env/bin/activate
+        pip install -r requirements.txt
+
+    - name: Retrain
+      run: |
+        python3 main.py
